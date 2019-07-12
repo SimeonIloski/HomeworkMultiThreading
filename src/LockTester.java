@@ -1,3 +1,4 @@
+// thread classes which will increment counter concurrently
 public class LockTester extends Thread {
    ReentrantLocking reentrantLocking;
    public LockTester(ReentrantLocking reentrantLocking){

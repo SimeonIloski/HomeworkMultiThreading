@@ -3,7 +3,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ReentrantLocking {
     private int counter;
     private final ReentrantLock reLock = new ReentrantLock(true);
-
+    /**
+     * METHOD WHICH NEEDS TO BE LOCKED TO STOP concurrently INCREASING COUNTER
+     * **/
     public void incrementCounter() {
         reLock.lock();
         try {
