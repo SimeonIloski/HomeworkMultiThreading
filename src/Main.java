@@ -25,10 +25,11 @@ public class Main {
         lockTester2.run();
     }
     public static  void reentrantreadWriteLockTest(){
+        File file =new File("test.txt");
         System.out.println("ReentrantReadWriteLockExample");
-        ReadWriteLockThread readWriteLockThread=new ReadWriteLockThread(0);
-        ReadWriteLockThread readWriteLockThread1=new ReadWriteLockThread(0);
-        ReadWriteLockThread readWriteLockThread2=new ReadWriteLockThread(0);
+        ReadWriteLockThread readWriteLockThread=new ReadWriteLockThread(0,file);
+        ReadWriteLockThread readWriteLockThread1=new ReadWriteLockThread(0,file);
+        ReadWriteLockThread readWriteLockThread2=new ReadWriteLockThread(0,file);
         readWriteLockThread.run();
         readWriteLockThread1.run();
         readWriteLockThread2.run();

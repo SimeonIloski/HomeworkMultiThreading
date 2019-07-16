@@ -10,12 +10,12 @@ public class ReentrantReadWriteLockFile {
     private final Lock writeLock = rwLock.writeLock();
     private Scanner scanner;
     private PrintWriter printWriter;
-    File file1;
-    public ReentrantReadWriteLockFile(int counter) {
-        this.file1 = file1;
+    File file;
+    public ReentrantReadWriteLockFile(int counter,File file) {
+
         this.counter=counter;
         try{
-            File file=new File("test.txt");
+            this.file=file;
             this.scanner=new Scanner(file);
             this.printWriter=new PrintWriter(file);
         } catch (FileNotFoundException e) {
@@ -41,7 +41,7 @@ public class ReentrantReadWriteLockFile {
         int content;
         try {
             while(scanner.hasNextLine()){
-            s+=scanner.nextLine();}
+                s+=scanner.nextLine();}
         } finally {
             readLock.unlock();
         }

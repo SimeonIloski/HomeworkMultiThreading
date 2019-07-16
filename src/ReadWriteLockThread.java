@@ -1,11 +1,13 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class ReadWriteLockThread extends Thread {
     private ReentrantReadWriteLockFile reentrantReadWriteLockFile;
     private int counter;
-    public ReadWriteLockThread(int counter){
+    public ReadWriteLockThread(int counter, File file){
         this.counter=counter;
-        this.reentrantReadWriteLockFile=new ReentrantReadWriteLockFile(counter);
+        this.reentrantReadWriteLockFile=new ReentrantReadWriteLockFile(counter,file);
     }
     @Override
     public void run(){
@@ -19,7 +21,8 @@ public class ReadWriteLockThread extends Thread {
         System.out.println("write lock is unlocked");
         System.out.println("current value of the counter is " + reentrantReadWriteLockFile.getCounter());
         System.out.println("read lock is locked");
-        String s=reentrantReadWriteLockFile.getFromFile();
+        String s= null;
+        s = reentrantReadWriteLockFile.getFromFile();
         System.out.println("read lock is unlocked");
         System.out.println("String readed from file is "+s);
         System.out.println("current value of the counter is " + reentrantReadWriteLockFile.getCounter());
