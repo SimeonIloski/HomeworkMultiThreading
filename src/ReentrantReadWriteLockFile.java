@@ -16,7 +16,7 @@ public class ReentrantReadWriteLockFile {
         this.counter=counter;
         try{
             this.file=file;
-            this.scanner=new Scanner("test.txt");
+            this.scanner=new Scanner(file.getName());
             this.printWriter=new PrintWriter(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
