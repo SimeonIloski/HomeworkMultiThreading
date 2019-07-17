@@ -27,6 +27,9 @@ public class Main {
         lockTester.run();
         lockTester1.run();
         lockTester2.run();
+        lockTester.stop();
+        lockTester.stop();
+        lockTester.stop();
     }
     private static  void reentrantreadWriteLockTest(){
         File file =new File("test.txt");
@@ -40,6 +43,7 @@ public class Main {
         readWriteLockThread.run();
         readWriteLockThread1.run();
         readWriteLockThread2.run();
+
     }
 
     private static void threadLocalExampleTest(){
@@ -59,12 +63,6 @@ public class Main {
         newThread3.run();
         newThread4.run();
         newThread5.run();
-        newThread1.start();
-        newThread2.stop();
-        newThread3.stop();
-        newThread3.stop();
-        newThread4.stop();
-        newThread5.stop();
 
     }
 

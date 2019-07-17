@@ -36,7 +36,7 @@ public class NewThread extends Thread {
         // using a ThreadLocal variable,primitive type variable and custom object
         synchronized (this) {
             try {
-                TimeUnit.SECONDS.sleep((int) Math.rint(Math.random() * 10));
+                TimeUnit.SECONDS.sleep(2);
                 //getting random value for the thread squared and multiplied with the thread id
                 Random random = new Random();
                 n = random.nextInt(50);
