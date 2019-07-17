@@ -21,7 +21,7 @@ public class ReadWriteLockThread extends Thread {
         System.out.println("write lock is unlocked");
         System.out.println("current value of the counter is " + reentrantReadWriteLockFile.getCounter());
         System.out.println("read lock is locked");
-        String s= null;
+        String s= "";
         s = reentrantReadWriteLockFile.getFromFile();
         System.out.println("read lock is unlocked");
         System.out.println("String readed from file is "+s);

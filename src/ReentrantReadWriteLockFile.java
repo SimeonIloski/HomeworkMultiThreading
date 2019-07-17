@@ -29,19 +29,16 @@ public class ReentrantReadWriteLockFile {
             printWriter.write("The current value of the counter is"+counter);
             printWriter.flush();
         } finally {
-
             writeLock.unlock();
-
         }
     }
 
     public String getFromFile() {
         readLock.lock();
         String s="";
-        int content;
         try {
-            while(scanner.hasNextLine()){
-                s+=scanner.nextLine();}
+            while(scanner.hasNext())
+            s += scanner.next();
         } finally {
             readLock.unlock();
         }
