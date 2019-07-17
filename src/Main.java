@@ -9,7 +9,8 @@ public class Main {
         ReentrantLockTest();
         //call of test method for threads with ReentrantReadWriteLock
         reentrantreadWriteLockTest();
-
+        //call of test method for synchronized block with thread local, primitive types and custom objects
+        threadLocalExampleTest();
 
     }
 
@@ -27,7 +28,7 @@ public class Main {
         lockTester1.run();
         lockTester2.run();
     }
-    public static  void reentrantreadWriteLockTest(){
+    private static  void reentrantreadWriteLockTest(){
         File file =new File("test.txt");
         System.out.println("ReentrantReadWriteLockExample");
         ReadWriteLockThread readWriteLockThread=new ReadWriteLockThread(0,file);
@@ -39,6 +40,32 @@ public class Main {
         readWriteLockThread.run();
         readWriteLockThread1.run();
         readWriteLockThread2.run();
+    }
+
+    private static void threadLocalExampleTest(){
+        System.out.println("Example for synchronized block with threadlocal, primitivetypes and custom object");
+        NewThread newThread1 = new NewThread();
+        NewThread newThread2 = new NewThread();
+        NewThread newThread3 = new NewThread();
+        NewThread newThread4 = new NewThread();
+        NewThread newThread5 = new NewThread();
+        newThread1.start();
+        newThread2.start();
+        newThread3.start();
+        newThread4.start();
+        newThread5.start();
+        newThread1.run();
+        newThread2.run();
+        newThread3.run();
+        newThread4.run();
+        newThread5.run();
+        newThread1.start();
+        newThread2.stop();
+        newThread3.stop();
+        newThread3.stop();
+        newThread4.stop();
+        newThread5.stop();
+
     }
 
 }
