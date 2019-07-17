@@ -27,9 +27,14 @@ public class Main {
         lockTester.run();
         lockTester1.run();
         lockTester2.run();
-        lockTester.stop();
-        lockTester.stop();
-        lockTester.stop();
+        try{
+            lockTester.join();
+            lockTester1.join();
+            lockTester2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
     private static  void reentrantreadWriteLockTest(){
         File file =new File("test.txt");
@@ -43,6 +48,13 @@ public class Main {
         readWriteLockThread.run();
         readWriteLockThread1.run();
         readWriteLockThread2.run();
+        try{
+            readWriteLockThread.join();
+            readWriteLockThread1.join();
+            readWriteLockThread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -63,6 +75,15 @@ public class Main {
         newThread3.run();
         newThread4.run();
         newThread5.run();
+        try{
+            newThread1.join();
+            newThread2.join();
+            newThread3.join();
+            newThread4.join();
+            newThread5.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
